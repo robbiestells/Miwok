@@ -12,7 +12,9 @@ public class Word {
 
     private String englishTranslation;
 
-    private int imageId;
+    private int imageId = NO_IMAGE_PROVIDED;
+
+    private static final int NO_IMAGE_PROVIDED = -1;
 
     public Word(String miwok, String english) {
         miwokTranslation = miwok;
@@ -34,4 +36,8 @@ public class Word {
     }
 
     public int getImageId(){ return imageId;}
+
+    public boolean hasImage(){
+        return imageId != NO_IMAGE_PROVIDED;
+    }
 }
