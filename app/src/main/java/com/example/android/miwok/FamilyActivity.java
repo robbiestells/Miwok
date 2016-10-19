@@ -15,9 +15,9 @@ public class FamilyActivity extends AppCompatActivity {
 
         ArrayList<Word> words = new ArrayList<Word>();
 
-        words.add(new Word("father", "әpә"));
-        words.add(new Word("mother", "әṭa"));
-        words.add(new Word("son", "angsi"));
+        words.add(new Word("father", "әpә", R.drawable.family_father));
+        words.add(new Word("mother", "әṭa", R.drawable.family_mother));
+        words.add(new Word("son", "angsi", R.drawable.family_son));
 //        words.add(new Word("four", "oyyisa"));
 //        words.add(new Word("five", "massokka"));
 //        words.add(new Word("six", "temmokka"));
