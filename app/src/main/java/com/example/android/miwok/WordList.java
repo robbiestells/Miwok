@@ -6,7 +6,7 @@ import android.widget.ListView;
 
 import java.util.ArrayList;
 
-public class PhrasesActivity extends AppCompatActivity {
+public class WordList extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -15,9 +15,9 @@ public class PhrasesActivity extends AppCompatActivity {
 
         ArrayList<Word> words = new ArrayList<Word>();
 
-        words.add(new Word("Where are you going?", "minto wuksus"));
-        words.add(new Word("What is your name?", "tinnә oyaase'nә"));
-        words.add(new Word("My name is...", "oyaaset..."));
+        words.add(new Word("red", "weṭeṭṭi"));
+        words.add(new Word("green", "chokokki"));
+        words.add(new Word("brown", "ṭakaakki"));
 //        words.add(new Word("four", "oyyisa"));
 //        words.add(new Word("five", "massokka"));
 //        words.add(new Word("six", "temmokka"));
@@ -29,10 +29,9 @@ public class PhrasesActivity extends AppCompatActivity {
 
         WordAdapter adapter = new WordAdapter(this, words);
 
-        ListView listView = (ListView) findViewById(R.id.wordList);
+        ListView listView = (ListView) findViewById(R.id.colorsList);
 
         listView.setAdapter(adapter);
 
     }
 }
-
