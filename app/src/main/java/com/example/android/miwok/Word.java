@@ -16,15 +16,19 @@ public class Word {
 
     private static final int NO_IMAGE_PROVIDED = -1;
 
-    public Word(String miwok, String english) {
+    private int audioFile;
+
+    public Word(String english, String miwok, int audio) {
         miwokTranslation = miwok;
         englishTranslation = english;
+        audioFile = audio;
     }
 
-    public Word(String miwok, String english, int image) {
+    public Word(String english, String miwok, int image, int audio) {
         miwokTranslation = miwok;
         englishTranslation = english;
         imageId = image;
+        audioFile = audio;
     }
 
     public String getMiwokTranslation() {
@@ -40,4 +44,6 @@ public class Word {
     public boolean hasImage(){
         return imageId != NO_IMAGE_PROVIDED;
     }
+
+    public int getAudioFile(){return audioFile;}
 }
