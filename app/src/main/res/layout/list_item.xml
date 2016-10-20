@@ -19,10 +19,12 @@
         android:layout_height="88dp"
         android:layout_toRightOf="@+id/image"
         android:background="@color/category_colors"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:id="@+id/text_container">
 
         <TextView
             android:id="@+id/miwokWord"
+            android:layout_height="wrap_content"
             android:layout_width="wrap_content"
             android:layout_weight="1"
             android:textColor="#FFFFFF"
