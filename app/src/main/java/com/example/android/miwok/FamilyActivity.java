@@ -11,6 +11,12 @@ import java.util.ArrayList;
 
 public class FamilyActivity extends AppCompatActivity {
     MediaPlayer mediaPlayer = new MediaPlayer();
+    private MediaPlayer.OnCompletionListener mCompletionListener = new MediaPlayer.OnCompletionListener() {
+        @Override
+        public void onCompletion(MediaPlayer mediaPlayer) {
+            releaseMediaPlayer();
+        }
+    };
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -40,6 +46,7 @@ public class FamilyActivity extends AppCompatActivity {
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             public void onItemClick(AdapterView<?> parent, View view,
                                     int position, long id) {
+                releaseMediaPlayer();
                 Word word = (Word) parent.getItemAtPosition(position);
 
 //                Toast.makeText(getApplicationContext(),
@@ -47,7 +54,23 @@ public class FamilyActivity extends AppCompatActivity {
 //                        Toast.LENGTH_SHORT).show();
                 mediaPlayer = MediaPlayer.create(FamilyActivity.this,word.getAudioFile());
                 mediaPlayer.start();
+                mediaPlayer.setOnCompletionListener(mCompletionListener);
             }
         });
+    }
+    /**
+     * Clean up the media player by releasing its resources.
+     */
+    private void releaseMediaPlayer() {
+        // If the media player is not null, then it may be currently playing a sound.
+        if (mediaPlayer != null) {
+            // Regardless of the current state of the media player, release its resources
+            // because we no longer need it.
+            mediaPlayer.release();
+            // Set the media player back to null. For our code, we've decided that
+            // setting the media player to null is an easy way to tell that the media player
+            // is not configured to play an audio file at the moment.
+            mediaPlayer = null;
+        }
     }
 }
